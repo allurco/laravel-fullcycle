@@ -13,7 +13,7 @@
 
 Este é um projeto para o curso full cycle da code education.
 
-Dockerhub Image: https://hub.docker.com/repository/docker/rogerssampaio/laravelfcstart
+Dockerhub Image: https://hub.docker.com/r/rogerssampaio/laravelfcstart
 
 ## About Laravel
 
