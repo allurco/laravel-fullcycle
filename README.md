@@ -4,4 +4,6 @@
 
 Este é um projeto para o curso full cycle da code education.
 
-Dockerhub Image: https://hub.docker.com/r/rogerssampaio/laravelfcstart
+Docker Hub Imagem Laravel: https://hub.docker.com/r/rogerssampaio/laravelfcstart
+
+Docker Hub Imagem Go: https://hub.docker.com/r/rogerssampaio/godesafio
