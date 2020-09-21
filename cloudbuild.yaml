@@ -1,4 +1,4 @@
 #cloudbuild.yaml
 steps:
-- name: ‘gcr.io/laravel-fullcycle-290122/docker-compose:1.27.2’
+- name: ‘gcr.io/laravel-fullcycle-290122/docker-compose’
   args: [‘up’, ‘-d’]
