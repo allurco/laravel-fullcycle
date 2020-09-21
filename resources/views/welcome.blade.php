@@ -44,7 +44,7 @@
                         </g>
                     </svg>
 
-                    <h2 class="dark:text-white ml-2">Full Cycle Edition</h2>
+                    <h2 class="dark:text-white ml-2">Full Cycle Edition V2</h2>
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
