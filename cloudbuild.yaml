@@ -5,9 +5,17 @@ steps:
   args: ['-f', 'docker-compose.cloudbuild.yaml','up', '-d']
 
 - id: "Docker PS"
-  name: 'gcr.io/cloud-builders/dokcer'
+  name: 'gcr.io/cloud-builders/docker'
   args: ['ps']
 
 - id: "Rodando php composer"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec', '-t', 'app', 'composer', 'install']
+
+- id: "Copiando o .env"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec', '-t', 'app', 'cp', '.env.exemple', '.env']
+
+- id: "Key Generate"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'key:generate']
