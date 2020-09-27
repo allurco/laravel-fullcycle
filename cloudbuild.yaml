@@ -1,4 +1,5 @@
 #cloudbuild.yaml
 steps:
-- name: 'gcr.io/laravel-fullcycle-290122/docker-compose'
-  args: ['up', '-d']
+- id: "Rodando Docker composer"
+  name: 'gcr.io/$PROJECT_ID/docker-compose'
+  args: ['-f', 'docker-compose.cloudbuild.yaml','up', '-d']
