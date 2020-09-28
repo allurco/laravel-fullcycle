@@ -1,4 +1,33 @@
 #cloudbuild.yaml
 steps:
-- name: 'gcr.io/laravel-fullcycle-290122/docker-compose'
-  args: ['up', '-d']
+- id: "Rodando Docker composer"
+  name: 'docker/compose'
+  args: ['-f', 'docker-compose.cloudbuild.yaml','up', '-d']
+
+- id: "Docker PS"
+  name: 'docker'
+  args: ['ps']
+
+- id: "Chown in /var/www"
+  name: 'docker'
+  args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www']
+
+- id: "Rodando php composer"
+  name: 'docker'
+  args: ['exec', '-t', 'app', 'composer', 'install']
+
+- id: "Copiando o .env"
+  name: 'docker'
+  args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
+
+- id: "Key Generate"
+  name: 'docker'
+  args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'key:generate']
+
+- id: "Migrations"
+  name: 'docker'
+  args: ['exec','-t', 'app','php', '/var/www/artisan', 'migrate']
+
+- id: "Tests unitarios"
+  name: 'docker'
+  args: ['exec','-t', 'app','php', '/var/www/vendor/bin/phpunit', '-c', '/var/www/phpunit.xml']
